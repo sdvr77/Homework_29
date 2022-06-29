@@ -27,15 +27,19 @@ public class BuyerController {
     }
 
     @PostMapping("/user")
-    public Buyer addNewBuyer(@RequestBody Buyer buyer) {
-        service.save(buyer);
-        return buyer;
+    public Object addNewBuyer(@RequestBody Buyer buyer) {
+        if (buyer.getEmail().endsWith("@qwerty.com")) {
+            service.save(buyer);
+            return buyer;
+        } else return "Object was not saved. Field 'email' must end with '@qwerty.com'";
     }
 
     @PutMapping("/user")
-    public Buyer updateBuyer(@RequestBody Buyer buyer) {
-        service.save(buyer);
-        return buyer;
+    public Object updateBuyer(@RequestBody Buyer buyer) {
+        if (buyer.getEmail().endsWith("@qwerty.com")) {
+            service.save(buyer);
+            return buyer;
+        } else return "Object was not saved. Field 'email' must end with '@qwerty.com'";
     }
 
     @DeleteMapping("/user/{id}")

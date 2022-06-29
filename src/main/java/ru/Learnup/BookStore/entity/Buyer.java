@@ -19,6 +19,9 @@ public class Buyer {
     @Column
     private int dateOfBirth;
 
+    @Column
+    private String email;
+
     @OneToOne(mappedBy = "buyer")
     private Buy buy;
 
@@ -61,5 +64,13 @@ public class Buyer {
 
     public void setDateOfBirth(int dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
